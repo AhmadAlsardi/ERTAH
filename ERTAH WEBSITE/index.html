@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ارتح - منصة تقنية متكاملة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#0b2545',
+                            light: '#134074',
+                            accent: '#00b4d8',
+                            green: '#2ecc71',
+                            dark: '#021024'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap');
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-image: url('main.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #1e293b;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+<!-- Header / Navbar -->
+<header id="navbar" class="fixed top-2 left-2 right-2 sm:top-3 sm:left-3 sm:right-3 max-w-7xl mx-auto z-50">
+        <div class="bg-slate-900/90 backdrop-blur-xl border border-slate-700/60 rounded-2xl shadow-2xl px-3 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between transition-all duration-300 hover:border-slate-600">
+            
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <img src="Asset5.png" alt="ارتح" class="h-7 sm:h-9 w-auto drop-shadow" onerror="this.src='https://via.placeholder.com/120x40?text=ERTAH'">
+            </div>
+
+            <!-- Navigation Links (ظاهرة وصغيرة على كل الأجهزة) -->
+            <nav class="flex items-center gap-2.5 sm:gap-6 font-medium text-slate-300 text-[11px] sm:text-sm">
+                <a href="#home" class="text-cyan-400 hover:text-cyan-300 transition-colors">الرئيسية</a>
+                <a href="about.html" class="hover:text-cyan-400 transition-colors hidden md:inline-block">عن ارتح</a>
+                
+                <!-- Services Dropdown -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-cyan-400 transition-colors py-1 focus:outline-none">
+                        <span>الخدمات</span>
+                        <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 group-hover:rotate-180"></i>
+                    </button>
+                    
+                    <!-- Dropdown Menu -->
+                    <div class="absolute top-full right-0 w-60 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
+                        <div class="bg-slate-900/95 backdrop-blur-2xl border border-slate-700/80 rounded-2xl shadow-2xl p-2 flex flex-col gap-1">
+                            <a href="Service1.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800/80 text-slate-300 hover:text-cyan-400 transition text-xs font-semibold">
+                                <i class="fa-solid fa-key text-cyan-400"></i> إذن الإصلاح
+                            </a>
+                            <a href="Service2.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800/80 text-slate-300 hover:text-cyan-400 transition text-xs font-semibold">
+                                <i class="fa-solid fa-credit-card text-cyan-400"></i> المدفوعات وتقسيطها BNPL
+                            </a>
+                            <a href="Service3.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800/80 text-slate-300 hover:text-cyan-400 transition text-xs font-semibold">
+                                <i class="fa-solid fa-truck-pickup text-cyan-400"></i> خدمة السطحات
+                            </a>
+                            <a href="Service4.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800/80 text-slate-300 hover:text-cyan-400 transition text-xs font-semibold">
+                                <i class="fa-solid fa-car-burst text-cyan-400"></i> غسيل السيارات
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="partners.html" class="hover:text-cyan-400 transition-colors hidden lg:inline-block">الشراكات</a>
+                <a href="fqa.html" class="hover:text-cyan-400 transition-colors hidden lg:inline-block">الأسئلة الشائعة</a>
+                <a href="contact.html" class="hover:text-cyan-400 transition-colors">تواصل</a>
+            </nav>
+
+            <!-- Actions & Language -->
+            <div class="flex items-center gap-2">
+                <button id="langToggleBtn" onclick="toggleLanguage()" class="flex items-center gap-1.5 border border-slate-700 bg-slate-800/50 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-semibold text-slate-300 hover:bg-slate-800 transition">
+                    <i class="fa-solid fa-globe text-cyan-400"></i> <span id="langText">EN</span>
+                </button>                
+                <a href="#download-buttons" class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-xl font-bold shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 hover:scale-[1.02] transition text-[11px] sm:text-xs">
+                    حمل التطبيق
+                </a>
+            </div>
+
+        </div>
+    </header>
+<section id="home" class="pt-32 pb-20 min-h-screen flex items-center relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-left" data-aos-duration="1000">
+    <span class="inline-block bg-blue-900/50 border border-cyan-500/40 text-cyan-300 text-sm font-bold px-4 py-1.5 rounded-full mb-6 backdrop-blur-md shadow-md">
+        منصة تقنية متكاملة
+    </span>
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]">
+        ليش ارتح؟
+    </h1>
+    
+    <!-- النص القابل للتغيير مع الاحتفاظ بالظل والتنسيق -->
+<!-- حاوية بارتفاع ثابت يمنع أي حركة أو قفزة نهائياً -->
+<div class="h-[130px] sm:h-[150px] lg:h-[160px] flex items-center mb-6">
+    <h2 id="changing-text" class="text-3xl sm:text-4xl lg:text-5xl font-black text-cyan-400 !leading-[1.4] drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] transition-opacity duration-500 w-full">
+        لأننا نفهم تحدياتك، ونعرف احتياجاتك
+    </h2>
+</div>
+    <p class="text-lg text-white/95 mb-8 leading-relaxed font-medium drop-shadow-md">
+        حلولنا الرقمية هي الحل الأمثل لتطوير ورشتك، تنظيم أعمالك، وزيادة دخلك بكل سهولة واحترافية.
+    </p>
+    <div class="flex flex-wrap gap-4 mb-8">
+        <a href="#services" class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-xl font-bold shadow-xl shadow-cyan-500/40 hover:scale-105 transition flex items-center gap-3">
+            <i class="fa-solid fa-store"></i> سجّل ورشتك الآن وابدأ مع ارتح!
+        </a>
+    </div>
+    <div class="pt-4 border-t border-white/20">
+        <p class="text-sm font-semibold text-white/90 mb-3 drop-shadow">حمل التطبيق الآن:</p>
+        <div class="flex gap-4">
+<a href="https://apps.apple.com/sa/app/ertah-%D8%A7%D8%B1%D8%AA%D8%AD/id1528882264" target="_blank" rel="noopener noreferrer" class="inline-block">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" class="h-11 cursor-pointer hover:scale-105 transition">
+        </a>
+        
+        <!-- رابط متجر جوجل بلاي -->
+        <a href="https://play.google.com/store/apps/details?id=sa.elm.ertah.mechanic" target="_blank" rel="noopener noreferrer" class="inline-block">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="h-11 cursor-pointer hover:scale-105 transition">
+        </a>
+          </div>
+    </div>
+</div>
+
+<!-- قسم الصور المتسلسلة -->
+<div data-aos="fade-right" data-aos-duration="1000" class="flex justify-center items-center relative min-h-[450px] w-full">
+    <div class="relative w-full max-w-[450px] h-[500px] flex items-center justify-center">
+        <!-- الصورة الأولى: H.png -->
+        <img src="H.png" alt="Phone Mockup 1" class="absolute inset-0 m-auto max-w-full h-auto drop-shadow-2xl" style="animation: floatSeq1 9s ease-in-out forwards;" onerror="this.src='https://via.placeholder.com/450x600?text=H.png'">
+        
+        <!-- الصورة الثانية: Asset1.png -->
+        <img src="Asset1.png" alt="Phone Mockup 2" class="absolute inset-0 m-auto max-w-full h-auto drop-shadow-2xl" style="animation: floatSeq2 9s ease-in-out forwards;" onerror="this.src='https://via.placeholder.com/450x600?text=Asset1.png'">
+        
+        <!-- الصورة الثالثة: H2.png (الثابتة بالنهاية مع طفو مستمر) -->
+        <img src="H2.png" alt="Phone Mockup 3" class="absolute inset-0 m-auto max-w-full h-auto drop-shadow-2xl" style="animation: floatSeq3 9s ease-in-out forwards;" onerror="this.src='https://via.placeholder.com/450x600?text=H2.png'">
+    </div>
+</div>
+
+<style>
+@keyframes floatSeq1 {
+    0% { transform: translateY(30px); opacity: 0; visibility: hidden; }
+    5% { transform: translateY(0); opacity: 1; visibility: visible; }
+    /* فترة الطفو الناعم للأولى */
+    12% { transform: translateY(-8px); }
+    19% { transform: translateY(4px); }
+    26% { transform: translateY(-6px); }
+    31% { transform: translateY(0); opacity: 1; }
+    33% { transform: translateY(-20px); opacity: 0; visibility: hidden; }
+    100% { transform: translateY(-20px); opacity: 0; visibility: hidden; }
+}
+
+@keyframes floatSeq2 {
+    0% { transform: translateY(30px); opacity: 0; visibility: hidden; }
+    33% { transform: translateY(30px); opacity: 0; visibility: hidden; }
+    38% { transform: translateY(0); opacity: 1; visibility: visible; }
+    /* فترة الطفو الناعم للثانية */
+    45% { transform: translateY(-8px); }
+    52% { transform: translateY(4px); }
+    59% { transform: translateY(-6px); }
+    64% { transform: translateY(0); opacity: 1; }
+    66% { transform: translateY(-20px); opacity: 0; visibility: hidden; }
+    100% { transform: translateY(-20px); opacity: 0; visibility: hidden; }
+}
+
+@keyframes floatSeq3 {
+    0% { transform: translateY(30px); opacity: 0; visibility: hidden; }
+    66% { transform: translateY(30px); opacity: 0; visibility: hidden; }
+    71% { transform: translateY(0); opacity: 1; visibility: visible; }
+    /* فترة الطفو المستمر والدائم للصورة الثالثة بالأخير */
+    80% { transform: translateY(-8px); }
+    90% { transform: translateY(4px); }
+    100% { transform: translateY(0); opacity: 1; visibility: visible; }
+}
+</style>
+
+</div>
+    </section>
+
+
+
+
+    <!-- سكربت العد المستقل لكل رقم -->
+<section id="about" class="py-16 bg-white/80 backdrop-blur-md shadow-inner">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-3xl font-black text-brand mb-4">عن ارتح</h2>
+                <p class="text-gray-600 leading-relaxed">
+                    منصة تقنية متكاملة تساعد الورش ومراكز الصيانة على تنظيم أعمالهم وزيادة دخلهم، اليوم أكثر من 12 ألف ورشة ومركز صيانة في المملكة اختاروا ارتح عشان يستفيدون من خدماتها.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center" dir="rtl">
+                <!-- العنصر الأول -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                    <h3 class="text-4xl font-black text-brand-accent mb-2" data-target="12" data-suffix="k+">0</h3>
+                    <p class="text-gray-600 font-semibold">ورشة مفعلة للتطبيق</p>
+                </div>
+                <!-- العنصر الثاني -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                    <h3 class="text-4xl font-black text-brand-accent mb-2" data-target="2.4" data-decimals="1" data-suffix="M+">0</h3>
+                    <p class="text-gray-600 font-semibold">عملية اصلاح مفعلة</p>
+                </div>
+                <!-- العنصر الثالث -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                    <h3 class="text-4xl font-black text-brand-accent mb-2" data-target="4000" data-suffix="+">0</h3>
+                    <p class="text-gray-600 font-semibold">عملية يوميا في التطبيق</p>
+                </div>
+                <!-- العنصر الرابع -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                    <h3 class="text-4xl font-black text-brand-accent mb-2" data-target="80" data-suffix="+">0</h3>
+                    <p class="text-gray-600 font-semibold">مدينة رئيسية حول المملكة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    
+
+<section id="services" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-white font-bold text-sm tracking-wider uppercase drop-shadow-md">تعـــرف علينا!</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-cyan-300 mb-4 [text-shadow:_0_4px_12px_rgba(0,0,0,0.8)]">أبرز خدماتنا</h2>
+                <p class="text-white font-bold text-sm tracking-wider uppercase drop-shadow-md">مع ارتح.. نمو أسرع، ونتائج أوضح!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- الخدمة الأولى: إذن الإصلاح -->
+                <a href="Service1.html" class="bg-gray-900/60 backdrop-blur-md p-8 rounded-3xl shadow-2xl border border-white/10 hover:border-brand-accent/60 hover:-translate-y-2 transition duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-accent/20 border border-brand-accent/30 text-brand-accent rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition">خدمة إذن الإصلاح</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">خدمة رقمية معتمدة تتيح إدارة وإصدار أذونات الإصلاح بشكل منظم وآمن.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-brand-accent font-semibold">
+                        <span>اعرف المزيد</span>
+                        <i class="fa-solid fa-arrow-left transform group-hover:-translate-x-1 transition"></i>
+                    </div>
+                </a>
+
+                <!-- الخدمة الثانية: المدفوعات BNPL -->
+                <a href="Service2.html" class="bg-gray-900/60 backdrop-blur-md p-8 rounded-3xl shadow-2xl border border-white/10 hover:border-brand-accent/60 hover:-translate-y-2 transition duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-accent/20 border border-brand-accent/30 text-brand-accent rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-credit-card"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition">خدمة المدفوعات وتقسيطها BNPL</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">حلول دفع مرنة وآمنة للمراكز تتيح لك تحصيل مدفوعات عملائك بسهولة.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-brand-accent font-semibold">
+                        <span>اعرف المزيد</span>
+                        <i class="fa-solid fa-arrow-left transform group-hover:-translate-x-1 transition"></i>
+                    </div>
+                </a>
+
+                <!-- الخدمة الثالثة: السطحات -->
+                <a href="Service3.html" class="bg-gray-900/60 backdrop-blur-md p-8 rounded-3xl shadow-2xl border border-white/10 hover:border-brand-accent/60 hover:-translate-y-2 transition duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="300">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-accent/20 border border-brand-accent/30 text-brand-accent rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-truck-pickup"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition">خدمة السطحات</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">حل منظم لطلب ونقل المركبات عبر شبكة مزودي خدمة معتمدين.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-brand-accent font-semibold">
+                        <span>اعرف المزيد</span>
+                        <i class="fa-solid fa-arrow-left transform group-hover:-translate-x-1 transition"></i>
+                    </div>
+                </a>
+
+                <!-- الخدمة الرابعة: غسيل السيارات -->
+                <a href="Service4.html" class="bg-gray-900/60 backdrop-blur-md p-8 rounded-3xl shadow-2xl border border-white/10 hover:border-brand-accent/60 hover:-translate-y-2 transition duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="400">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-accent/20 border border-brand-accent/30 text-brand-accent rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-car-burst"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition">خدمة غسيل السيارات</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">خدمة إضافية تعزز تجربة العميل ضمن رحلة الإصلاح لرفع القيمة المقدمة.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-brand-accent font-semibold">
+                        <span>اعرف المزيد</span>
+                        <i class="fa-solid fa-arrow-left transform group-hover:-translate-x-1 transition"></i>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+
+<section class="mt-32 max-w-7xl mx-auto px-4 mb-20" data-aos="zoom-in" data-aos-duration="1000">
+        
+        <div id="imageSlider" class="relative w-full h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden">
+            
+            <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-100">
+                <img src="banner-bg.png" alt="صورة 1" class="w-full h-full object-contain">
+            </div>
+            <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+                <img src="S1-Copy.jpeg" alt="صورة 2" class="w-full h-full object-contain">
+            </div>
+            <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+                <img src="S2 - Copy.jpeg" alt="صورة 3" class="w-full h-full object-contain">
+            </div>
+            <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+                <img src="S3 - Copy.jpeg" alt="صورة 4" class="w-full h-full object-contain">
+            </div>
+            <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+                <img src="S4 - Copy.jpeg" alt="صورة 5" class="w-full h-full object-contain">
+            </div>
+
+        </div>
+
+        <div class="absolute bottom-6 left-0 right-0 z-20 flex justify-center items-center gap-2">
+            <button onclick="currentSlide(0)" class="slider-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300"></button>
+            <button onclick="currentSlide(1)" class="slider-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300"></button>
+            <button onclick="currentSlide(2)" class="slider-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300"></button>
+            <button onclick="currentSlide(3)" class="slider-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300"></button>
+            <button onclick="currentSlide(4)" class="slider-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300"></button>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('#imageSlider .slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    let slideInterval;
+
+    function showSlide(index) {
+        if (index >= slides.length) slideIndex = 0;
+        if (index < 0) slideIndex = slides.length - 1;
+
+        slides.forEach(slide => slide.classList.remove('opacity-100'));
+        slides.forEach(slide => slide.classList.add('opacity-0'));
+        
+        dots.forEach(dot => {
+            dot.classList.remove('bg-white', 'w-8');
+            dot.classList.add('bg-white/50', 'w-3');
+        });
+
+        slides[slideIndex].classList.remove('opacity-0');
+        slides[slideIndex].classList.add('opacity-100');
+        
+        dots[slideIndex].classList.remove('bg-white/50', 'w-3');
+        dots[slideIndex].classList.add('bg-white', 'w-8');
+    }
+
+    function nextSlide() {
+        slideIndex++;
+        showSlide(slideIndex);
+    }
+
+    function currentSlide(index) {
+        slideIndex = index;
+        showSlide(slideIndex);
+        resetTimer();
+    }
+
+    function startTimer() {
+        slideInterval = setInterval(nextSlide, 3000);
+    }
+
+    function resetTimer() {
+        clearInterval(slideInterval);
+        startTimer();
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        showSlide(slideIndex);
+        startTimer();
+    });
+</script>
+
+
+    <!-- سكربت العد التلقائي المستقل -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const counters = document.querySelectorAll('#about .text-brand-accent');
+        let animated = false;
+
+        const startCounters = () => {
+            counters.forEach(counter => {
+                const target = parseFloat(counter.getAttribute('data-target'));
+                const decimals = parseInt(counter.getAttribute('data-decimals')) || 0;
+                const suffix = counter.getAttribute('data-suffix') || '';
+                
+                const duration = 2000; 
+                const steps = 60;
+                const increment = target / steps;
+                let current = 0;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.innerText = target.toFixed(decimals) + suffix;
+                        clearInterval(timer);
+                    } else {
+                        counter.innerText = current.toFixed(decimals) + suffix;
+                    }
+                }, duration / steps);
+            });
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animated) {
+                    startCounters();
+                    animated = true;
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const section = document.querySelector('#about');
+        if (section) observer.observe(section);
+    });
+    </script>
+
+
+
+        <!-- 3. قسم التحميل والصورة H3.png -->
+        <section class="py-20 text-center max-w-4xl mx-auto px-4" data-aos="zoom-in" data-aos-duration="1000">
+            <h2 class="text-3xl sm:text-4xl font-black text-white mb-3 drop-shadow-lg">حمل التطبيق الآن</h2>
+            <p class="text-cyan-300 font-bold text-lg mb-8 drop-shadow">مع ارتح.. أعمالك تكبر، وعميلك يرتاح!</p>
+            
+            <!-- صورة H3.png -->
+            <div class="flex justify-center mb-10">
+                <img src="H3.png" alt="Ertah App Preview" class="max-w-[320px] w-full h-auto drop-shadow-2xl hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x500?text=H3.png'">
+            </div>
+
+
+            
+            <!-- أزرار التحميل المطلوبة تماماً -->
+<!-- أزرار التحميل بدون بوكس وقريبة من الصورة -->
+<div class="mt-4 flex flex-col items-center" id="download-buttons">
+    <p class="text-sm font-semibold text-white/90 mb-3 drop-shadow">حمل التطبيق الآن:</p>
+    <div class="flex gap-4 justify-center items-center">
+        <a href="https://apps.apple.com/sa/app/ertah-%D8%A7%D8%B1%D8%AA%D8%AD/id1528882264" target="_blank" rel="noopener noreferrer" class="inline-block">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" class="h-11 cursor-pointer hover:scale-105 transition">
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=sa.elm.ertah.mechanic" target="_blank" rel="noopener noreferrer" class="inline-block">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="h-11 cursor-pointer hover:scale-105 transition">
+        </a>
+    </div>
+</div>
+</section>
+<!-- قسم الشركاء المتحرك بدون كاردات خلفية -->
+<!-- قسم الشركاء المتحرك بدون فراغات -->
+<section class="py-12 overflow-hidden relative">
+    <div class="max-w-7xl mx-auto px-4 mb-8 text-center">
+        <h2 class="text-white text-2xl sm:text-3xl font-black text-cyan-400 tracking-wide drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]">شركاؤنا</h2>
+    </div>
+
+    <!-- حاوية الشريط المتحرك -->
+    <div class="relative w-full overflow-hidden flex select-none">
+        
+        <!-- الشريط الأول (مكرر 5 مرات لضمان تغطية أوسع الشاشات) -->
+        <div class="flex animate-marquee items-center gap-12 shrink-0 py-4">
+            <!-- التكرار 1 -->
+            <div class="flex items-center justify-center w-32 h-16"><img src="01.png" alt="شريك 1" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="02.png" alt="شريك 2" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="03.png" alt="شريك 3" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="04.png" alt="شريك 4" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="05.png" alt="شريك 5" class="max-h-12 w-auto object-contain"></div>
+
+            <!-- التكرار 2 -->
+            <div class="flex items-center justify-center w-32 h-16"><img src="01.png" alt="شريك 1" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="02.png" alt="شريك 2" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="03.png" alt="شريك 3" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="04.png" alt="شريك 4" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="05.png" alt="شريك 5" class="max-h-12 w-auto object-contain"></div>
+
+            <!-- التكرار 3 -->
+            <div class="flex items-center justify-center w-32 h-16"><img src="01.png" alt="شريك 1" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="02.png" alt="شريك 2" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="03.png" alt="شريك 3" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="04.png" alt="شريك 4" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="05.png" alt="شريك 5" class="max-h-12 w-auto object-contain"></div>
+
+            <!-- التكرار 4 -->
+            <div class="flex items-center justify-center w-32 h-16"><img src="01.png" alt="شريك 1" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="02.png" alt="شريك 2" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="03.png" alt="شريك 3" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="04.png" alt="شريك 4" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="05.png" alt="شريك 5" class="max-h-12 w-auto object-contain"></div>
+
+            <!-- التكرار 5 -->
+            <div class="flex items-center justify-center w-32 h-16"><img src="01.png" alt="شريك 1" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="02.png" alt="شريك 2" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="03.png" alt="شريك 3" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="04.png" alt="شريك 4" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="05.png" alt="شريك 5" class="max-h-12 w-auto object-contain"></div>
+        </div>
+
+        <!-- الشريط الثاني (نسخة مطابقة تماماً لتتابع الحركة بدون أي انقطاع) -->
+        <div class="flex animate-marquee items-center gap-12 shrink-0 py-4" aria-hidden="true">
+            <!-- التكرار 1 -->
+            <div class="flex items-center justify-center w-32 h-16"><img src="01.png" alt="شريك 1" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="02.png" alt="شريك 2" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="03.png" alt="شريك 3" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="04.png" alt="شريك 4" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="05.png" alt="شريك 5" class="max-h-12 w-auto object-contain"></div>
+
+            <!-- التكرار 2 -->
+            <div class="flex items-center justify-center w-32 h-16"><img src="01.png" alt="شريك 1" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="02.png" alt="شريك 2" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="03.png" alt="شريك 3" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="04.png" alt="شريك 4" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="05.png" alt="شريك 5" class="max-h-12 w-auto object-contain"></div>
+
+            <!-- التكرار 3 -->
+            <div class="flex items-center justify-center w-32 h-16"><img src="01.png" alt="شريك 1" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="02.png" alt="شريك 2" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="03.png" alt="شريك 3" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="04.png" alt="شريك 4" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="05.png" alt="شريك 5" class="max-h-12 w-auto object-contain"></div>
+
+            <!-- التكرار 4 -->
+            <div class="flex items-center justify-center w-32 h-16"><img src="01.png" alt="شريك 1" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="02.png" alt="شريك 2" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="03.png" alt="شريك 3" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="04.png" alt="شريك 4" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="05.png" alt="شريك 5" class="max-h-12 w-auto object-contain"></div>
+
+            <!-- التكرار 5 -->
+            <div class="flex items-center justify-center w-32 h-16"><img src="01.png" alt="شريك 1" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="02.png" alt="شريك 2" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="03.png" alt="شريك 3" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="04.png" alt="شريك 4" class="max-h-12 w-auto object-contain"></div>
+            <div class="flex items-center justify-center w-32 h-16"><img src="05.png" alt="شريك 5" class="max-h-12 w-auto object-contain"></div>
+        </div>
+
+    </div>
+</section>
+
+<!-- التنسيق الحركي -->
+<style>
+    @keyframes marquee {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(100%); }
+    }
+    .animate-marquee {
+        animation: marquee 45s linear infinite;
+    }
+    .relative:hover .animate-marquee {
+        animation-play-state: paused;
+    }
+</style>
+
+    <section class="py-16 bg-brand text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" data-aos="zoom-in">
+            <h2 class="text-3xl sm:text-4xl font-black mb-4">مع ارتح.. أعمالك تكبر، وعميلك يرتاح!</h2>
+            <p class="text-gray-300 mb-8 max-w-xl mx-auto">حمل التطبيق الآن وانضم إلى آلاف الورش الناجحة في المملكة.</p>
+            <div class="flex justify-center gap-4">
+                <a href="#services" class="bg-brand-accent text-white px-8 py-3.5 rounded-xl font-bold hover:bg-opacity-95 transition shadow-lg">
+                    سجّل ورشتك الآن
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-brand-dark text-white pt-16 pb-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <div>
+                                <span class="text-xl font-black text-white tracking-wider">إرتح | ERTAH</span>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">مع ارتح .. وصول أكثر ومدفوعات أسرع.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-4 text-brand-accent">روابط سريعة</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="#home" class="hover:text-white transition">الرئيسية</a></li>
+                    <li><a href="#about" class="hover:text-white transition">عن ارتح</a></li>
+                    <li><a href="#services" class="hover:text-white transition">الخدمات</a></li>
+                       <li><a href="partners.html" class="hover:text-white transition">الشراكات</a></li>
+
+                </ul>
+            </div>
+                        <div>
+                <h4 class="font-bold text-lg mb-4 text-brand-accent">تواصل معنا</h4>
+                <p class="text-sm mb-2">SA - +966920051048</p>
+                <p class="text-sm mb-4">ertahsa@elm.sa</p>
+                <div class="flex gap-4 text-lg">
+                    <a href="#" class="hover:text-brand-accent transition"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="hover:text-brand-accent transition"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-brand-accent transition"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-4 text-brand-accent">معلومات ضريبة القيمة المظافة</h4>
+                <div class="flex items-center gap-3">
+                <img src="vat-logo.png" alt="ارتح" class="h-9 w-auto drop-shadow">
+            </div>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li>الرقم الضريبي: 300075658510003</li>
+                    <li>الرقم الوطني الموحد: 7001398960</li>
+                </ul>
+            </div>
+            <div class="mt-4 flex flex-col items-center md:col-span-4" id="download-buttons">
+                <p class="text-sm font-semibold text-white/90 mb-3 drop-shadow">حمل التطبيق الآن:</p>
+                <div class="flex gap-4 justify-center items-center">
+                    <a href="https://apps.apple.com/sa/app/ertah-%D8%A7%D8%B1%D8%AA%D8%AD/id1528882264" target="_blank" rel="noopener noreferrer" class="inline-block">
+                        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" class="h-11 cursor-pointer hover:scale-105 transition">
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=sa.elm.ertah.mechanic" target="_blank" rel="noopener noreferrer" class="inline-block">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="h-11 cursor-pointer hover:scale-105 transition">
+                    </a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
+            <p>جميع الحقوق محفوظة لمنصة ارتح © 2026</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+    <script>
+    // قاموس الترجمات (العربية والإنجليزية)
+    const translations = {
+        ar: {
+            dir: "rtl",
+            langCode: "ar",
+            toggleBtnText: "EN",
+            // روابط النافبار
+            "nav_home": "الرئيسية",
+            "nav_about": "عن ارتح",
+            "nav_services": "الخدمات",
+            "nav_partners": "الشراكات",
+            "nav_faq": "الأسئلة الشائعة",
+            "nav_contact": "تواصل معنا",
+            "download_btn": "حمل التطبيق الآن",
+            
+            // عناوين ونصوص عامة (مثال لصفحة تواصل معنا أو الرئيسية)
+            "contact_badge": "قنوات التواصل والشراكة",
+            "contact_title_1": "حلولك..",
+            "contact_title_2": "مكانها ارتح!",
+            "contact_desc": "شركتك تقدم خدمات أو حلول تفيد الورش ومراكز الصيانة، سواء كانت أنظمة تمويل، قطع غيار، حلول تقنية، أو خدمات تشغيلية.. وغيرها. نرحب دائماً بانضمامك وشراكتك معنا!",
+            "phone_title": "رقم الهاتف",
+            "phone_action": "اتصل الان",
+            "email_title": "البريد الإلكتروني",
+            "email_action": "أرسل بريداً",
+            "whatsapp_title": "الواتساب",
+            "whatsapp_action": "راسلنا واتساب"
+        },
+        en: {
+            dir: "ltr",
+            langCode: "en",
+            toggleBtnText: "AR",
+            // Navbar Links
+            "nav_home": "Home",
+            "nav_about": "About Ertah",
+            "nav_services": "Services",
+            "nav_partners": "Partnerships",
+            "nav_faq": "FAQ",
+            "nav_contact": "Contact Us",
+            "download_btn": "Download App Now",
+            
+            // General Texts
+            "contact_badge": "Communication & Partnership Channels",
+            "contact_title_1": "Your Solutions..",
+            "contact_title_2": "Belong in Ertah!",
+            "contact_desc": "Your company provides services or solutions that benefit workshops and maintenance centers, whether financial systems, spare parts, technical solutions, or operational services. We always welcome you!",
+            "phone_title": "Phone Number",
+            "phone_action": "Call Now",
+            "email_title": "Email Address",
+            "email_action": "Send Email",
+            "whatsapp_title": "WhatsApp",
+            "whatsapp_action": "Chat on WhatsApp"
+        }
+    };
+
+    // دالة تبديل اللغة
+    function toggleLanguage() {
+        let currentLang = localStorage.getItem('ertah_lang') || 'ar';
+        let newLang = currentLang === 'ar' ? 'en' : 'ar';
+        localStorage.setItem('ertah_lang', newLang);
+        applyLanguage(newLang);
+    }
+
+    // تطبيق اللغة على عناصر الصفحة
+    function applyLanguage(lang) {
+        const t = translations[lang];
+        
+        // تغيير الاتجاه واللغة العامة للصفحة
+        document.documentElement.setAttribute('dir', t.dir);
+        document.documentElement.setAttribute('lang', t.langCode);
+        
+        // تغيير نص الزر
+        document.getElementById('langText').innerText = t.toggleBtnText;
+
+        // البحث عن جميع العناصر التي تحمل data-i18n وتحديث نصها
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (t[key]) {
+                element.innerText = t[key];
+            }
+        });
+    }
+
+    // تشغيل اللغة المخزنة فور فتح الصفحة
+    document.addEventListener("DOMContentLoaded", () => {
+        let savedLang = localStorage.getItem('ertah_lang') || 'ar';
+        applyLanguage(savedLang);
+    });
+</script>
+</body>
+<script>
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('navbar');
+    const scrollThreshold = 50; // المسافة البسيطة قبل تفعيل التأثير
+
+    window.addEventListener('scroll', function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+            // سكرول للأسفل -> إخفاء البانر
+            navbar.style.transform = 'translateY(-150%)';
+            navbar.style.opacity = '0';
+        } else {
+            // سكرول للأعلى -> إظهار البانر 
+            navbar.style.transform = 'translateY(0)';
+            navbar.style.opacity = '1';
+        }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }, { passive: true });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const textElement = document.getElementById('changing-text');
+        
+        const text1 = "لأننا نفهم تحدياتك، ونعرف احتياجاتك";
+        const text2 = "نساعد الورش ومراكز الصيانة على تنظيم أعمالهم وزيادة دخلهم.";
+        
+        let isFirstText = true;
+
+        setInterval(() => {
+            // إخفاء النص بتدرج ناعم
+            textElement.style.opacity = '0';
+            
+            setTimeout(() => {
+                // تغيير محتوى النص بعد اختفائه قليلاً
+                if (isFirstText) {
+                    textElement.innerText = text2;
+                } else {
+                    textElement.innerText = text1;
+                }
+                // إظهار النص الجديد بتدرج ناعم
+                textElement.style.opacity = '1';
+                isFirstText = !isFirstText;
+            }, 500); // مدة التلاشي بالمللي ثانية
+            
+        }, 5000); // تتغير كل 3 ثوانٍ
+    });
+</script>
+</html>

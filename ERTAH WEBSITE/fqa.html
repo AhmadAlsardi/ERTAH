@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ارتح - الأسئلة الشائعة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#0e1b2a',
+                        'brand-accent': '#00b4d8'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        #navbar {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .faq-card {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans antialiased min-h-screen relative">
+
+    <div class="absolute inset-x-0 top-0 z-[-1] min-h-full overflow-hidden">
+        <img src="about.jpeg" alt="Background" class="w-full min-h-screen object-cover object-top">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+    </div>
+
+<header id="navbar" class="fixed top-2 left-2 right-2 sm:top-3 sm:left-3 sm:right-3 max-w-7xl mx-auto z-50">
+        <div class="bg-slate-900/90 backdrop-blur-xl border border-slate-700/60 rounded-2xl shadow-2xl px-3 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between transition-all duration-300 hover:border-slate-600">
+            
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <img src="Asset5.png" alt="ارتح" class="h-7 sm:h-9 w-auto drop-shadow" onerror="this.src='https://via.placeholder.com/120x40?text=ERTAH'">
+            </div>
+
+            <!-- Navigation Links (ظاهرة وصغيرة على كل الأجهزة) -->
+            <nav class="flex items-center gap-2.5 sm:gap-6 font-medium text-slate-300 text-[11px] sm:text-sm">
+                <a href="index.html" class="hover:text-cyan-400 transition-colors hidden lg:inline-block">الرئيسية</a>
+                <a href="about.html" class="hover:text-cyan-400 transition-colors hidden md:inline-block">عن ارتح</a>
+                
+                <!-- Services Dropdown -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-cyan-400 transition-colors py-1 focus:outline-none">
+                        <span>الخدمات</span>
+                        <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 group-hover:rotate-180"></i>
+                    </button>
+                    
+                    <!-- Dropdown Menu -->
+                    <div class="absolute top-full right-0 w-60 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
+                        <div class="bg-slate-900/95 backdrop-blur-2xl border border-slate-700/80 rounded-2xl shadow-2xl p-2 flex flex-col gap-1">
+                            <a href="Service1.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800/80 text-slate-300 hover:text-cyan-400 transition text-xs font-semibold">
+                                <i class="fa-solid fa-key text-cyan-400"></i> إذن الإصلاح
+                            </a>
+                            <a href="Service2.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800/80 text-slate-300 hover:text-cyan-400 transition text-xs font-semibold">
+                                <i class="fa-solid fa-credit-card text-cyan-400"></i> المدفوعات وتقسيطها BNPL
+                            </a>
+                            <a href="Service3.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800/80 text-slate-300 hover:text-cyan-400 transition text-xs font-semibold">
+                                <i class="fa-solid fa-truck-pickup text-cyan-400"></i> خدمة السطحات
+                            </a>
+                            <a href="Service4.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800/80 text-slate-300 hover:text-cyan-400 transition text-xs font-semibold">
+                                <i class="fa-solid fa-car-burst text-cyan-400"></i> غسيل السيارات
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="partners.html" class="hover:text-cyan-400 transition-colors hidden lg:inline-block">الشراكات</a>
+                <a href="fqa.html" class="text-cyan-400 hover:text-cyan-300 transition-colors">الأسئلة الشائعة</a>
+                <a href="contact.html" class="hover:text-cyan-400 transition-colors">تواصل</a>
+            </nav>
+
+            <!-- Actions & Language -->
+            <div class="flex items-center gap-2">
+                <button id="langToggleBtn" onclick="toggleLanguage()" class="flex items-center gap-1.5 border border-slate-700 bg-slate-800/50 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-semibold text-slate-300 hover:bg-slate-800 transition">
+                    <i class="fa-solid fa-globe text-cyan-400"></i> <span id="langText">EN</span>
+                </button>                
+                <a href="#download-buttons" class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-xl font-bold shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 hover:scale-[1.02] transition text-[11px] sm:text-xs">
+                    حمل التطبيق
+                </a>
+            </div>
+
+        </div>
+    </header>
+    <div class="relative z-10 pt-36 pb-20 px-6">
+        
+        <section class="max-w-4xl mx-auto text-center mb-16" data-aos="fade-up" data-aos-duration="1000">
+            <span class="bg-brand-accent/20 text-brand-accent border border-brand-accent/30 text-xs font-bold px-4 py-2 rounded-full inline-block mb-6 shadow-sm">
+                مركز المساعدة والاستفسارات
+            </span>
+            
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 drop-shadow-lg">
+                الأسئلة <span class="text-brand-accent">الشائعة</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                إجابات شاملة عن كل ما تحتاجه لمعرفته حول خدمات منصة ارتح وكيفية الاستفادة منها بأفضل شكل ممكن.
+            </p>
+        </section>
+
+        <section class="max-w-4xl mx-auto space-y-4 mb-20" data-aos="fade-up" data-aos-duration="1000">
+            
+            <div class="faq-card bg-slate-900/70 backdrop-blur-xl border border-slate-700/60 rounded-2xl overflow-hidden shadow-lg">
+                <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-right flex justify-between items-center gap-4 focus:outline-none">
+                    <span class="text-lg font-bold text-white">ما هي منصة ارتح؟</span>
+                    <i class="fa-solid fa-chevron-down text-brand-accent transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6 text-gray-300 text-sm leading-relaxed">
+                    <div class="pb-5 border-t border-slate-800 pt-3">
+                        منصة ارتح هي نظام رقمي متكامل مصمم خصيصاً لمساعدة ورش ومراكز صيانة السيارات في تنظيم أعمالهم، إدارة أذونات الإصلاح، طلب السطحات، وتحصيل المدفوعات والتقسيط (BNPL) بطريقة احترافية وآمنة.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card bg-slate-900/70 backdrop-blur-xl border border-slate-700/60 rounded-2xl overflow-hidden shadow-lg">
+                <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-right flex justify-between items-center gap-4 focus:outline-none">
+                    <span class="text-lg font-bold text-white">كيف يمكنني تسجيل ورشتي في المنصة؟</span>
+                    <i class="fa-solid fa-chevron-down text-brand-accent transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6 text-gray-300 text-sm leading-relaxed">
+                    <div class="pb-5 border-t border-slate-800 pt-3">
+                        يمكنك التسجيل بكل سهولة من خلال الضغط على زر "سجّل ورشتك الآن" الموجود في الموقع، وإدخال بيانات الورشة المطلوبة، ليتم تفعيل حسابك والبدء فوراً في الاستفادة من الخدمات.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card bg-slate-900/70 backdrop-blur-xl border border-slate-700/60 rounded-2xl overflow-hidden shadow-lg">
+                <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-right flex justify-between items-center gap-4 focus:outline-none">
+                    <span class="text-lg font-bold text-white">ما هي خدمة أذونات الإصلاح؟</span>
+                    <i class="fa-solid fa-chevron-down text-brand-accent transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6 text-gray-300 text-sm leading-relaxed">
+                    <div class="pb-5 border-t border-slate-800 pt-3">
+                        هي خدمة رقمية معتمدة تتيح للمراكز والورش إدارة وإصدار أذونات الإصلاح للمركبات بشكل منظم ورسمي، مما يسهل الإجراءات القانونية والتشغيلية.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card bg-slate-900/70 backdrop-blur-xl border border-slate-700/60 rounded-2xl overflow-hidden shadow-lg">
+                <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-right flex justify-between items-center gap-4 focus:outline-none">
+                    <span class="text-lg font-bold text-white">كيف تعمل خدمة المدفوعات والتقسيط (BNPL)؟</span>
+                    <i class="fa-solid fa-chevron-down text-brand-accent transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6 text-gray-300 text-sm leading-relaxed">
+                    <div class="pb-5 border-t border-slate-800 pt-3">
+                        توفر المنصة حلول دفع مرنة وآمنة تتيح لعملاء الورش تقسيط تكاليف الصيانة والإصلاح عبر مزودي خدمة معتمدين، مع ضمان تحصيل أرباحك ومستحقاتك المالية بكل سرعة وسهولة.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card bg-slate-900/70 backdrop-blur-xl border border-slate-700/60 rounded-2xl overflow-hidden shadow-lg">
+                <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-right flex justify-between items-center gap-4 focus:outline-none">
+                    <span class="text-lg font-bold text-white">هل توفرون خدمة نقل السيارات بالسطحات؟</span>
+                    <i class="fa-solid fa-chevron-down text-brand-accent transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6 text-gray-300 text-sm leading-relaxed">
+                    <div class="pb-5 border-t border-slate-800 pt-3">
+                        نعم، تتيح خدمة السطحات للمركز طلب سطحة مباشرة عبر ارتح من خلال شبكة مزودي خدمة معتمدين لتسريع الاستجابة ونقل المركبات للمركز بكل أمان.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card bg-slate-900/70 backdrop-blur-xl border border-slate-700/60 rounded-2xl overflow-hidden shadow-lg">
+                <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-right flex justify-between items-center gap-4 focus:outline-none">
+                    <span class="text-lg font-bold text-white">كيف يمكنني التواصل مع الدعم الفني؟</span>
+                    <i class="fa-solid fa-chevron-down text-brand-accent transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6 text-gray-300 text-sm leading-relaxed">
+                    <div class="pb-5 border-t border-slate-800 pt-3">
+                        يمكنك التواصل معنا دائماً عبر البريد الإلكتروني ertahsa@elm.sa أو من خلال وسائل التواصل الاجتماعي الموجودة في أسفل الصفحة، وسيقوم فريق الدعم بمساعدتك في أسرع وقت.
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+<section id="services" class="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden rounded-3xl my-10 max-w-7xl mx-auto">
+        
+        <!-- خلفية السكشن المخصصة section.jpeg -->
+        <div class="absolute inset-0 z-[-1]">
+            <img src="section.jpeg" alt="Services Background" class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-black/70 backdrop-blur-[2px]"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-white font-bold text-sm tracking-wider uppercase drop-shadow-md">تعـــرف علينا!</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-cyan-300 mb-4 [text-shadow:_0_4px_12px_rgba(0,0,0,0.8)]">أبرز خدماتنا</h2>
+                <p class="text-white font-bold text-sm tracking-wider uppercase drop-shadow-md">مع ارتح.. نمو أسرع، ونتائج أوضح!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- الخدمة الأولى: إذن الإصلاح -->
+                <a href="Service1.html" class="bg-gray-900/60 backdrop-blur-md p-8 rounded-3xl shadow-2xl border border-white/10 hover:border-brand-accent/60 hover:-translate-y-2 transition duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-accent/20 border border-brand-accent/30 text-brand-accent rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition">خدمة إذن الإصلاح</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">خدمة رقمية معتمدة تتيح إدارة وإصدار أذونات الإصلاح بشكل منظم وآمن.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-brand-accent font-semibold">
+                        <span>اعرف المزيد</span>
+                        <i class="fa-solid fa-arrow-left transform group-hover:-translate-x-1 transition"></i>
+                    </div>
+                </a>
+
+                <!-- الخدمة الثانية: المدفوعات BNPL -->
+                <a href="Service2.html" class="bg-gray-900/60 backdrop-blur-md p-8 rounded-3xl shadow-2xl border border-white/10 hover:border-brand-accent/60 hover:-translate-y-2 transition duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-accent/20 border border-brand-accent/30 text-brand-accent rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-credit-card"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition">خدمة المدفوعات وتقسيطها BNPL</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">حلول دفع مرنة وآمنة للمراكز تتيح لك تحصيل مدفوعات عملائك بسهولة.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-brand-accent font-semibold">
+                        <span>اعرف المزيد</span>
+                        <i class="fa-solid fa-arrow-left transform group-hover:-translate-x-1 transition"></i>
+                    </div>
+                </a>
+
+                <!-- الخدمة الثالثة: السطحات -->
+                <a href="Service3.html" class="bg-gray-900/60 backdrop-blur-md p-8 rounded-3xl shadow-2xl border border-white/10 hover:border-brand-accent/60 hover:-translate-y-2 transition duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="300">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-accent/20 border border-brand-accent/30 text-brand-accent rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-truck-pickup"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition">خدمة السطحات</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">حل منظم لطلب ونقل المركبات عبر شبكة مزودي خدمة معتمدين.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-brand-accent font-semibold">
+                        <span>اعرف المزيد</span>
+                        <i class="fa-solid fa-arrow-left transform group-hover:-translate-x-1 transition"></i>
+                    </div>
+                </a>
+
+                <!-- الخدمة الرابعة: غسيل السيارات -->
+                <a href="Service4.html" class="bg-gray-900/60 backdrop-blur-md p-8 rounded-3xl shadow-2xl border border-white/10 hover:border-brand-accent/60 hover:-translate-y-2 transition duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="400">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-accent/20 border border-brand-accent/30 text-brand-accent rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-car-burst"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition">خدمة غسيل السيارات</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">خدمة إضافية تعزز تجربة العميل ضمن رحلة الإصلاح لرفع القيمة المقدمة.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-brand-accent font-semibold">
+                        <span>اعرف المزيد</span>
+                        <i class="fa-solid fa-arrow-left transform group-hover:-translate-x-1 transition"></i>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+</section>
+    <footer id="contact" class="bg-brand-dark text-white pt-16 pb-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <div>
+                <span class="text-xl font-black text-white tracking-wider">إرتح | ERTAH</span>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">مع ارتح .. وصول أكثر ومدفوعات أسرع.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-4 text-brand-accent">روابط سريعة</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="index.html" class="hover:text-white transition">الرئيسية</a></li>
+                    <li><a href="about.html" class="hover:text-white transition">عن ارتح</a></li>
+                    <li><a href="partners.html" class="hover:text-white transition">الشراكات</a></li>
+                    <li><a href="#services" class="hover:text-white transition">الخدمات</a></li>
+
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-4 text-brand-accent">تواصل معنا</h4>
+                <p class="text-sm mb-2">SA - +966920051048</p>
+                <p class="text-sm mb-4">ertahsa@elm.sa</p>
+                <div class="flex gap-4 text-lg">
+                    <a href="#" class="hover:text-brand-accent transition"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="hover:text-brand-accent transition"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-brand-accent transition"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-4 text-brand-accent">معلومات ضريبة القيمة المضافة</h4>
+                <div class="flex items-center gap-3 mb-3">
+                    <img src="vat-logo.png" alt="ضريبة القيمة المضافة" class="h-9 w-auto drop-shadow">
+                </div>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li>الرقم الضريبي: 300075658510003</li>
+                    <li>الرقم الوطني الموحد: 7001398960</li>
+                </ul>
+            </div>
+            <div class="mt-4 flex flex-col items-center md:col-span-4" id="download-buttons">
+                <p class="text-sm font-semibold text-white/90 mb-3 drop-shadow">حمل التطبيق الآن:</p>
+                <div class="flex gap-4 justify-center items-center">
+                    <a href="https://apps.apple.com/sa/app/ertah-%D8%A7%D8%B1%D8%AA%D8%AD/id1528882264" target="_blank" rel="noopener noreferrer" class="inline-block">
+                        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" class="h-11 cursor-pointer hover:scale-105 transition">
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=sa.elm.ertah.mechanic" target="_blank" rel="noopener noreferrer" class="inline-block">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="h-11 cursor-pointer hover:scale-105 transition">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
+            <p>جميع الحقوق محفوظة لمنصة ارتح © 2026</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 50 });
+
+        // تفاعلية الأسئلة الشائعة (Accordion)
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('fa-chevron-down, i');
+            
+            // إغلاق باقي العناصر المفتوحة إن أردت (اختياري)
+            // فتح/إغلاق العنصر الحالي
+            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                content.style.maxHeight = '0px';
+                button.querySelector('i').style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                button.querySelector('i').style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // إخفاء وإظهار النافبار مع السكرول
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        const scrollThreshold = 50;
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+                navbar.style.transform = 'translateY(-150%)';
+                navbar.style.opacity = '0';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+                navbar.style.opacity = '1';
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, { passive: true });
+    </script>
+    <script>
+    // قاموس الترجمات (العربية والإنجليزية)
+    const translations = {
+        ar: {
+            dir: "rtl",
+            langCode: "ar",
+            toggleBtnText: "EN",
+            // روابط النافبار
+            "nav_home": "الرئيسية",
+            "nav_about": "عن ارتح",
+            "nav_services": "الخدمات",
+            "nav_partners": "الشراكات",
+            "nav_faq": "الأسئلة الشائعة",
+            "nav_contact": "تواصل معنا",
+            "download_btn": "حمل التطبيق الآن",
+            
+            // عناوين ونصوص عامة (مثال لصفحة تواصل معنا أو الرئيسية)
+            "contact_badge": "قنوات التواصل والشراكة",
+            "contact_title_1": "حلولك..",
+            "contact_title_2": "مكانها ارتح!",
+            "contact_desc": "شركتك تقدم خدمات أو حلول تفيد الورش ومراكز الصيانة، سواء كانت أنظمة تمويل، قطع غيار، حلول تقنية، أو خدمات تشغيلية.. وغيرها. نرحب دائماً بانضمامك وشراكتك معنا!",
+            "phone_title": "رقم الهاتف",
+            "phone_action": "اتصل الان",
+            "email_title": "البريد الإلكتروني",
+            "email_action": "أرسل بريداً",
+            "whatsapp_title": "الواتساب",
+            "whatsapp_action": "راسلنا واتساب"
+        },
+        en: {
+            dir: "ltr",
+            langCode: "en",
+            toggleBtnText: "AR",
+            // Navbar Links
+            "nav_home": "Home",
+            "nav_about": "About Ertah",
+            "nav_services": "Services",
+            "nav_partners": "Partnerships",
+            "nav_faq": "FAQ",
+            "nav_contact": "Contact Us",
+            "download_btn": "Download App Now",
+            
+            // General Texts
+            "contact_badge": "Communication & Partnership Channels",
+            "contact_title_1": "Your Solutions..",
+            "contact_title_2": "Belong in Ertah!",
+            "contact_desc": "Your company provides services or solutions that benefit workshops and maintenance centers, whether financial systems, spare parts, technical solutions, or operational services. We always welcome you!",
+            "phone_title": "Phone Number",
+            "phone_action": "Call Now",
+            "email_title": "Email Address",
+            "email_action": "Send Email",
+            "whatsapp_title": "WhatsApp",
+            "whatsapp_action": "Chat on WhatsApp"
+        }
+    };
+
+    // دالة تبديل اللغة
+    function toggleLanguage() {
+        let currentLang = localStorage.getItem('ertah_lang') || 'ar';
+        let newLang = currentLang === 'ar' ? 'en' : 'ar';
+        localStorage.setItem('ertah_lang', newLang);
+        applyLanguage(newLang);
+    }
+
+    // تطبيق اللغة على عناصر الصفحة
+    function applyLanguage(lang) {
+        const t = translations[lang];
+        
+        // تغيير الاتجاه واللغة العامة للصفحة
+        document.documentElement.setAttribute('dir', t.dir);
+        document.documentElement.setAttribute('lang', t.langCode);
+        
+        // تغيير نص الزر
+        document.getElementById('langText').innerText = t.toggleBtnText;
+
+        // البحث عن جميع العناصر التي تحمل data-i18n وتحديث نصها
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (t[key]) {
+                element.innerText = t[key];
+            }
+        });
+    }
+
+    // تشغيل اللغة المخزنة فور فتح الصفحة
+    document.addEventListener("DOMContentLoaded", () => {
+        let savedLang = localStorage.getItem('ertah_lang') || 'ar';
+        applyLanguage(savedLang);
+    });
+</script>
+</body>
+</html>

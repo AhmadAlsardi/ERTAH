@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ارتح - الشراكات</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#0e1b2a',
+                        'brand-accent': '#00b4d8'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        #navbar {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(0, 180, 216, 0.25);
+            border-color: rgba(0, 180, 216, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans antialiased min-h-screen relative">
+
+    <div class="fixed inset-x-0 top-0 z-[-1] min-h-full overflow-hidden">
+        <img src="main.png" alt="Background" class="w-full min-h-screen object-cover object-top">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+    </div>
+
+<header id="navbar" class="fixed top-2 left-2 right-2 sm:top-3 sm:left-3 sm:right-3 max-w-7xl mx-auto z-50">
+        <div class="bg-slate-900/90 backdrop-blur-xl border border-slate-700/60 rounded-2xl shadow-2xl px-3 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between transition-all duration-300 hover:border-slate-600">
+            
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <img src="Asset5.png" alt="ارتح" class="h-7 sm:h-9 w-auto drop-shadow" onerror="this.src='https://via.placeholder.com/120x40?text=ERTAH'">
+            </div>
+
+            <!-- Navigation Links (ظاهرة وصغيرة على كل الأجهزة) -->
+            <nav class="flex items-center gap-2.5 sm:gap-6 font-medium text-slate-300 text-[11px] sm:text-sm">
+                <a href="index.html" class="hover:text-cyan-400 transition-colors hidden lg:inline-block">الرئيسية</a>
+                <a href="about.html" class="hover:text-cyan-400 transition-colors hidden md:inline-block">عن ارتح</a>
+                
+                <!-- Services Dropdown -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-cyan-400 transition-colors py-1 focus:outline-none">
+                        <span>الخدمات</span>
+                        <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 group-hover:rotate-180"></i>
+                    </button>
+                    
+                    <!-- Dropdown Menu -->
+                    <div class="absolute top-full right-0 w-60 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
+                        <div class="bg-slate-900/95 backdrop-blur-2xl border border-slate-700/80 rounded-2xl shadow-2xl p-2 flex flex-col gap-1">
+                            <a href="Service1.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800/80 text-slate-300 hover:text-cyan-400 transition text-xs font-semibold">
+                                <i class="fa-solid fa-key text-cyan-400"></i> إذن الإصلاح
+                            </a>
+                            <a href="Service2.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800/80 text-slate-300 hover:text-cyan-400 transition text-xs font-semibold">
+                                <i class="fa-solid fa-credit-card text-cyan-400"></i> المدفوعات وتقسيطها BNPL
+                            </a>
+                            <a href="Service3.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800/80 text-slate-300 hover:text-cyan-400 transition text-xs font-semibold">
+                                <i class="fa-solid fa-truck-pickup text-cyan-400"></i> خدمة السطحات
+                            </a>
+                            <a href="Service4.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800/80 text-slate-300 hover:text-cyan-400 transition text-xs font-semibold">
+                                <i class="fa-solid fa-car-burst text-cyan-400"></i> غسيل السيارات
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="partners.html" class="text-cyan-400 hover:text-cyan-300 transition-colors">الشراكات</a>
+                <a href="fqa.html" class="hover:text-cyan-400 transition-colors hidden lg:inline-block">الأسئلة الشائعة</a>
+                <a href="contact.html" class="hover:text-cyan-400 transition-colors">تواصل</a>
+            </nav>
+
+            <!-- Actions & Language -->
+            <div class="flex items-center gap-2">
+                <button id="langToggleBtn" onclick="toggleLanguage()" class="flex items-center gap-1.5 border border-slate-700 bg-slate-800/50 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-semibold text-slate-300 hover:bg-slate-800 transition">
+                    <i class="fa-solid fa-globe text-cyan-400"></i> <span id="langText">EN</span>
+                </button>                
+                <a href="#download-buttons" class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-xl font-bold shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 hover:scale-[1.02] transition text-[11px] sm:text-xs">
+                    حمل التطبيق
+                </a>
+            </div>
+
+        </div>
+    </header>
+    <div class="relative z-10 pt-36 pb-20 px-6">
+        
+        <section class="max-w-7xl mx-auto mb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <div class="lg:col-span-7 text-right" data-aos="fade-left" data-aos-duration="1000">
+                    <span class="bg-brand-accent/20 text-brand-accent border border-brand-accent/30 text-xs font-bold px-4 py-2 rounded-full inline-block mb-6 shadow-sm">
+                        برنامج الشركاء الاستراتيجيين
+                    </span>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 drop-shadow-lg">
+                        انضم إلينا <span class="text-brand-accent">ووسّع وصولك!!</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-gray-300 leading-relaxed mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                        ماذا تقدم لك منصة ارتح؟ تمنحك فرصة وصول فورية وفعّالة إلى سوق ضخم من الورش ومراكز الإصلاح، دون الحاجة لبناء شبكة من الصفر أو استثمار وقت طويل في التسويق.
+                    </p>
+                    <p class="text-sm sm:text-base text-cyan-300 font-semibold mb-8">
+                        وفرنا لك قناة جاهزة، جمهور مستهدف، وأدوات تسويقية متكاملة تساعدك على النمو بسرعة!
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <a href="#contact-partner" class="bg-brand-accent hover:bg-cyan-600 text-gray-950 font-bold px-7 py-3.5 rounded-xl transition shadow-xl text-sm">
+                            كن شريكاً معنا الآن ↓
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 flex justify-center" data-aos="fade-right" data-aos-duration="1000">
+                        <img src="partners.png" alt="شركاء ارتح" class="w-full h-auto object-cover rounded-2xl transform group-hover:scale-105 transition duration-700">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto mb-20">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">قناة وصول جاهزة لآلاف الورش</h2>
+                <p class="text-gray-300">ادخل السوق من أقصر طريق… أوصل لعملائك في اللحظة التي يحتاجونك فيها!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card bg-slate-900/70 backdrop-blur-xl border border-slate-700/60 p-8 rounded-3xl shadow-xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="w-14 h-14 bg-cyan-500/20 text-cyan-400 rounded-2xl flex items-center justify-center text-2xl mb-6 border border-cyan-500/30">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">بيئة يومية مفعلة</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">بيئة يستخدمها أصحاب الورش يومياً للعمل وإدارة عملياتهم بكفاءة.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card bg-slate-900/70 backdrop-blur-xl border border-slate-700/60 p-8 rounded-3xl shadow-xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="w-14 h-14 bg-cyan-500/20 text-cyan-400 rounded-2xl flex items-center justify-center text-2xl mb-6 border border-cyan-500/30">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">وصول مباشر ومستهدف</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">وصول مباشر لشريحة عملائك المستهدفين بدون أي مجهود تسويقي إضافي.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card bg-slate-900/70 backdrop-blur-xl border border-slate-700/60 p-8 rounded-3xl shadow-xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+                    <div>
+                        <div class="w-14 h-14 bg-cyan-500/20 text-cyan-400 rounded-2xl flex items-center justify-center text-2xl mb-6 border border-cyan-500/30">
+                            <i class="fa-solid fa-handshake-simple"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">اتخاذ قرار الشراء</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">فرصة ذهبية لعرض خدماتك في المكان الذي تُتخذ فيه قرارات الشراء الفعلية.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto mb-20">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">حضور دائم داخل التطبيق… وظهور مستمر أمام العملاء!</h2>
+                <p class="text-gray-300">من خلال إضافة وصول مباشر لموقعك أو منصتك، تقدر توصل إلى آلاف العملاء بشكل فوري.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="feature-card bg-slate-900/70 backdrop-blur-xl border border-slate-700/60 p-8 rounded-3xl shadow-xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="w-14 h-14 bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6 border border-blue-500/30">
+                            <i class="fa-solid fa-image"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">بنر إعلاني بتصميم خاص!</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">يظهر بنر مخصص لعلامتك التجارية داخل التطبيق، موجّه مباشرة لعملائك لعرض خدماتك وعروضك الحصرية بطريقة جذابة.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card bg-slate-900/70 backdrop-blur-xl border border-slate-700/60 p-8 rounded-3xl shadow-xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="w-14 h-14 bg-cyan-500/20 text-cyan-400 rounded-2xl flex items-center justify-center text-2xl mb-6 border border-cyan-500/30">
+                            <i class="fa-solid fa-circle-nodes"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">أيقونة ثابتة في واجهة التطبيق!</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">تظهر علامتك التجارية ضمن خدمات ارتح الرئيسية، مع رابط مباشر لمتجرك الإلكتروني أو منصتك الخاصة لتسهيل وصول العملاء.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto mb-20">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">تسويق دقيق.. ونتائج ملموسة.. من دون تكاليف عالية!</h2>
+                <p class="text-gray-300">نساعدك على الوصول لعملائك بدقة واستهداف، عبر أدوات تسويقية فعّالة:</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="feature-card bg-slate-900/70 backdrop-blur-xl border border-slate-700/60 p-8 rounded-3xl shadow-xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="w-14 h-14 bg-emerald-500/20 text-emerald-400 rounded-2xl flex items-center justify-center text-2xl mb-6 border border-emerald-500/30">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">رسائل واتساب مباشرة</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">وصول مباشر لأكثر من 12,000 ورشة ومركز إصلاح، مع إمكانية إرسال عروضك وخدماتك لتحقيق مبيعات فورية.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card bg-slate-900/70 backdrop-blur-xl border border-slate-700/60 p-8 rounded-3xl shadow-xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="w-14 h-14 bg-amber-500/20 text-amber-400 rounded-2xl flex items-center justify-center text-2xl mb-6 border border-amber-500/30">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">إشعارات التطبيق اليومية</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">إشعارات يومية تظهر للمستخدمين كدعوة مباشرة لزيارة متجرك، وتصفح خدماتك، أو الاستفادة القصوى من عروضك.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-4xl mx-auto bg-slate-900/80 backdrop-blur-2xl border border-slate-700/80 rounded-3xl p-8 sm:p-12 shadow-2xl mb-16 text-center" data-aos="fade-up">
+            <div class="w-16 h-16 bg-cyan-500/20 text-cyan-400 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6 border border-cyan-500/30">
+                <i class="fa-solid fa-network-wired"></i>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4">ربط رقمي مرن وسهل</h3>
+            <p class="text-gray-300 text-base sm:text-lg mb-8 leading-relaxed">
+                نوفر بيئة رقمية مرنة تسهّل ربط خدماتك بمنصة ارتح، وربط خدمات ارتح بمنصتك الخاصة لضمان تجربة سلسة، عمليات أسرع وأكثر احترافية، وتقليل الأخطاء وتسهيل إدارة الطلبات.
+            </p>
+            <div id="contact-partner" class="flex flex-wrap justify-center gap-4">
+                <a href="mailto:ertahsa@elm.sa" class="bg-brand-accent hover:bg-cyan-600 text-gray-950 font-bold px-8 py-3.5 rounded-xl transition shadow-lg text-sm">
+                    تواصل معنا للشراكة الآن
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+<footer id="contact" class="bg-slate-950 text-white pt-16 pb-12 border-t border-gray-800 relative z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        <div>
+            <span class="text-xl font-black text-white tracking-wider">إرتح | ERTAH</span>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">مع ارتح .. وصول أكثر ومدفوعات أسرع.</p>
+        </div>
+        <div>
+            <h4 class="font-bold text-lg mb-4 text-brand-accent">روابط سريعة</h4>
+            <ul class="space-y-2 text-sm text-gray-400">
+                <li><a href="index.html" class="hover:text-white transition">الرئيسية</a></li>
+                <li><a href="about.html" class="hover:text-white transition">عن ارتح</a></li>
+                <li><a href="index.html#services" class="hover:text-white transition">الخدمات</a></li>
+                <li><a href="partners.html" class="hover:text-white transition">الشراكات</a></li>
+                <li><a href="fqa.html" class="hover:text-white transition">الأسئلة الشائعة</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-lg mb-4 text-brand-accent">تواصل معنا</h4>
+            <p class="text-sm mb-2">SA - +966920051048</p>
+            <p class="text-sm mb-4">ertahsa@elm.sa</p>
+            <div class="flex gap-4 text-lg">
+                <a href="#" class="hover:text-brand-accent transition"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="hover:text-brand-accent transition"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="hover:text-brand-accent transition"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+        <div>
+            <h4 class="font-bold text-lg mb-4 text-brand-accent">معلومات ضريبة القيمة المضافة</h4>
+            <div class="flex items-center gap-3 mb-3">
+                <img src="vat-logo.png" alt="ضريبة القيمة المضافة" class="h-9 w-auto drop-shadow">
+            </div>
+            <ul class="space-y-2 text-sm text-gray-400">
+                <li>الرقم الضريبي: 300075658510003</li>
+                <li>الرقم الوطني الموحد: 7001398960</li>
+            </ul>
+        </div>
+        <div class="mt-4 flex flex-col items-center md:col-span-4" id="download-buttons">
+            <p class="text-sm font-semibold text-white/90 mb-3 drop-shadow">حمل التطبيق الآن:</p>
+            <div class="flex gap-4 justify-center items-center">
+                <a href="https://apps.apple.com/sa/app/ertah-%D8%A7%D8%B1%D8%AA%D8%AD/id1528882264" target="_blank" rel="noopener noreferrer" class="inline-block">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" class="h-11 cursor-pointer hover:scale-105 transition">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=sa.elm.ertah.mechanic" target="_blank" rel="noopener noreferrer" class="inline-block">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="h-11 cursor-pointer hover:scale-105 transition">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
+        <p>جميع الحقوق محفوظة لمنصة ارتح © 2026</p>
+    </div>
+</footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 50 });
+
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        const scrollThreshold = 50;
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+                navbar.style.transform = 'translateY(-150%)';
+                navbar.style.opacity = '0';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+                navbar.style.opacity = '1';
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, { passive: true });
+    </script>
+    <script>
+    // قاموس الترجمات (العربية والإنجليزية)
+    const translations = {
+        ar: {
+            dir: "rtl",
+            langCode: "ar",
+            toggleBtnText: "EN",
+            // روابط النافبار
+            "nav_home": "الرئيسية",
+            "nav_about": "عن ارتح",
+            "nav_services": "الخدمات",
+            "nav_partners": "الشراكات",
+            "nav_faq": "الأسئلة الشائعة",
+            "nav_contact": "تواصل معنا",
+            "download_btn": "حمل التطبيق الآن",
+            
+            // عناوين ونصوص عامة (مثال لصفحة تواصل معنا أو الرئيسية)
+            "contact_badge": "قنوات التواصل والشراكة",
+            "contact_title_1": "حلولك..",
+            "contact_title_2": "مكانها ارتح!",
+            "contact_desc": "شركتك تقدم خدمات أو حلول تفيد الورش ومراكز الصيانة، سواء كانت أنظمة تمويل، قطع غيار، حلول تقنية، أو خدمات تشغيلية.. وغيرها. نرحب دائماً بانضمامك وشراكتك معنا!",
+            "phone_title": "رقم الهاتف",
+            "phone_action": "اتصل الان",
+            "email_title": "البريد الإلكتروني",
+            "email_action": "أرسل بريداً",
+            "whatsapp_title": "الواتساب",
+            "whatsapp_action": "راسلنا واتساب"
+        },
+        en: {
+            dir: "ltr",
+            langCode: "en",
+            toggleBtnText: "AR",
+            // Navbar Links
+            "nav_home": "Home",
+            "nav_about": "About Ertah",
+            "nav_services": "Services",
+            "nav_partners": "Partnerships",
+            "nav_faq": "FAQ",
+            "nav_contact": "Contact Us",
+            "download_btn": "Download App Now",
+            
+            // General Texts
+            "contact_badge": "Communication & Partnership Channels",
+            "contact_title_1": "Your Solutions..",
+            "contact_title_2": "Belong in Ertah!",
+            "contact_desc": "Your company provides services or solutions that benefit workshops and maintenance centers, whether financial systems, spare parts, technical solutions, or operational services. We always welcome you!",
+            "phone_title": "Phone Number",
+            "phone_action": "Call Now",
+            "email_title": "Email Address",
+            "email_action": "Send Email",
+            "whatsapp_title": "WhatsApp",
+            "whatsapp_action": "Chat on WhatsApp"
+        }
+    };
+
+    // دالة تبديل اللغة
+    function toggleLanguage() {
+        let currentLang = localStorage.getItem('ertah_lang') || 'ar';
+        let newLang = currentLang === 'ar' ? 'en' : 'ar';
+        localStorage.setItem('ertah_lang', newLang);
+        applyLanguage(newLang);
+    }
+
+    // تطبيق اللغة على عناصر الصفحة
+    function applyLanguage(lang) {
+        const t = translations[lang];
+        
+        // تغيير الاتجاه واللغة العامة للصفحة
+        document.documentElement.setAttribute('dir', t.dir);
+        document.documentElement.setAttribute('lang', t.langCode);
+        
+        // تغيير نص الزر
+        document.getElementById('langText').innerText = t.toggleBtnText;
+
+        // البحث عن جميع العناصر التي تحمل data-i18n وتحديث نصها
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (t[key]) {
+                element.innerText = t[key];
+            }
+        });
+    }
+
+    // تشغيل اللغة المخزنة فور فتح الصفحة
+    document.addEventListener("DOMContentLoaded", () => {
+        let savedLang = localStorage.getItem('ertah_lang') || 'ar';
+        applyLanguage(savedLang);
+    });
+</script>
+</body>
+</html>
